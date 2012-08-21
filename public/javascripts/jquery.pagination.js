@@ -21,6 +21,7 @@
 				case 'status':
 					return getStatus.call(this);
 				default:
+					showPage.call(this, Number(opts));
 					break;
 			}
 		}
@@ -56,10 +57,10 @@
 					$(el).show();
 				}
 			});
+
+			triggerEvent.call(this, 'page-changed');
 			
-			this.opts.after_change(function() {
-				triggerEvent.call(this, 'page-changed');
-			}, this);
+			this.opts.after_change(noop, this);
 
 		}, this);
 

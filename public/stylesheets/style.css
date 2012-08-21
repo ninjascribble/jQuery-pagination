@@ -20,7 +20,9 @@ h1, h2, h3, h4, h5, h6 {
  *==========================================*/
 #controls {
 	margin: 0 0 24px;
-	text-align: right;
+	overflow: hidden;
+	text-align: center;
+	width: 100%;
 }
 
 #controls button {
@@ -41,6 +43,31 @@ h1, h2, h3, h4, h5, h6 {
 	border: 3px solid #6C5B5B;
 }
 
+#controls button.prev {
+	float: left;
+}
+
+#controls button.next {
+	float: right;
+}
+
+#controls ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#controls ul li {
+	display: inline-block;
+	line-height: 36px;
+	margin: 0 3px;
+}
+
+#controls ul li.current a {
+	color: #6C5B5B;
+	text-decoration: none;
+}
+
 /*============================================
  * Items
  *==========================================*/
@@ -55,8 +82,9 @@ h1, h2, h3, h4, h5, h6 {
 #items ul li {
 	background: #FFFFFF;
 	float: left;
-	margin: 0 8px 24px 0;
-	width: 24%;
+	margin: 0 0 24px;
+	border-right: 8px solid #F4E9E9;
+	width: 25%;
 }
 
 #items ul li img,
