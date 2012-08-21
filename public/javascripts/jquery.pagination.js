@@ -47,11 +47,6 @@
 			var page = this.page = (n || 1)
 			  , range = [(this.opts.pp * this.page) - this.opts.pp, this.opts.pp * this.page];
 
-			while (this.items.length <= range[0]) {
-				page = this.page = page - 1;
-				range = [(this.opts.pp * this.page) - this.opts.pp, this.opts.pp * this.page];
-			}
-
 			this.items.hide().each(function(i, el) {
 				if (i >= range[0] && i < range[1]) {
 					$(el).show();
