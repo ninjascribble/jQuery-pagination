@@ -1,42 +1,26 @@
 ;(function($) {
 
-	var paged_items_container = $('#items').css({ opacity: 0, height: 760, overflow: 'hidden' })
+	var paged_items_container = $('#items').css({ opacity: 0, overflow: 'hidden' })
 	  , paged_items_controls = $('#controls')
 	  , paged_items = $('#items ul').pagination({
 			pp: 12,
 			before_change: beforePageChange,
 			after_change: afterPageChange
-		});
+		})
+	  , paged_items_navigation = paged_items.pagination('get_navigation');
 
 /*============================================
- * Event binding
+ * Implementation logic
  *==========================================*/
 	paged_items_controls
 		.on('click', 'button.prev', function() { navigateTo('previous'); })
 		.on('click', 'button.next', function() { navigateTo('next'); })
 		.on('click', 'a', function() { navigateTo(this.text); })
+		.append(paged_items_navigation);
 
 	paged_items
 		.on('page-changed', onPageChanged)
 		.on('page-out-of-bounds', onPageOutOfBounds);
-
-/*============================================
- * Messy initialization
- *==========================================*/
-	var nav = $('<ul/>'),
-		stats = paged_items.pagination('status');
-
-	for (var i = 0; i < stats.num_pages; i++) {
-		var model = {
-			n: i + 1,
-			classname: function() {
-				return (stats.page == i + 1) ? ' class="current"' : '';
-			}
-		};
-		nav.append( Mustache.to_html('<li{{classname}}><a href="#{{n}}">{{n}}</a></li>', model) );
-	}
-
-	paged_items_controls.append(nav);
 
 /*============================================
  * Methods
@@ -58,9 +42,10 @@
 	}
 
 	function onPageChanged(e) {
-		nav.children('li')
+		paged_items_navigation.children('li')
 			.removeClass('current')
-			.eq(e.page - 1).addClass('current');
+			.eq(e.page - 1)
+				.addClass('current');
 	}
 
 	function onPageOutOfBounds(e) {

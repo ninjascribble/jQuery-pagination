@@ -20,6 +20,10 @@
 					break;
 				case 'status':
 					return getStatus.call(this);
+					break;
+				case 'get_navigation':
+					return getNavigation.call(this);
+					break;
 				default:
 					showPage.call(this, Number(opts));
 					break;
@@ -66,6 +70,21 @@
 			page: this.page,
 			num_pages: this.num_pages
 		}
+	}
+
+	function getNavigation() {
+
+		var status = getStatus.call(this)
+		  , root = $('<ul/>')
+		  , model = { n: 0, classname: '' };
+
+		for (var i = 0; i < status.num_pages; i++) {
+			model.n = i + 1;
+			model.classname = (status.page == i + 1) ? ' class="current"' : '';
+			root.append( '<li' + model.classname + '><a href="javascript:void(0);">' + model.n + '</a></li>' );
+		}
+
+		return root;
 	}
 
 	function triggerEvent(type, more) {
