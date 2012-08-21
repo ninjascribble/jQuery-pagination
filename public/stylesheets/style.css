@@ -1,5 +1,8 @@
+* { box-sizing: border-box; }
+
 body {
-	background: #ccc;
+	background: #F4E9E9;
+	color: #6C5B5B;
 	padding: 50px;
 	font: 14px/18px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -8,17 +11,49 @@ a {
 	color: #00B7FF;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	color: #392E2E;
+}
+
+/*============================================
+ * Controls
+ *==========================================*/
+#controls {
+	margin: 0 0 24px;
+	text-align: right;
+}
+
+#controls button {
+	background: #E77B7B;
+	border: 3px solid #B27676;
+	border-radius: 4px;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: bold;
+	height: 36px;
+	padding: 0 16px;
+	text-align: center;
+}
+
+#controls button:hover {
+	background: #C55D5D;
+	border: 3px solid #6C5B5B;
+}
+
 /*============================================
  * Items
  *==========================================*/
 #items ul {
 	list-style-type: none;
 	margin: 0;
+	overflow: hidden;
 	padding: 0;
+	width: 100%;
 }
 
 #items ul li {
-	background: #fff;
+	background: #FFFFFF;
 	float: left;
 	margin: 0 8px 24px 0;
 	width: 24%;
