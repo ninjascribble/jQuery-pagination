@@ -1,0 +1,44 @@
+body {
+	background: #ccc;
+	padding: 50px;
+	font: 14px/18px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #00B7FF;
+}
+
+/*============================================
+ * Items
+ *==========================================*/
+#items ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#items ul li {
+	background: #fff;
+	float: left;
+	margin: 0 8px 24px 0;
+	width: 24%;
+}
+
+#items ul li img,
+#items ul li h4,
+#items ul li p {
+	display: block;
+	margin: 0 0 8px;
+	width: 100%;
+}
+
+#items ul li h4,
+#items ul li p {
+	padding: 0 8px;
+}
+
+#items ul li p {
+	height: 36px;
+	overflow: hidden;
+	word-wrap: break-word;
+}

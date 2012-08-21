@@ -1,0 +1,20 @@
+extends layout
+
+block content
+
+  h1 Pagination with jQuery and Mustache
+
+  section#items
+    ul
+      each item in items
+        li
+          img(src='' + item.image_src)
+          h4= item.header_text
+          p= item.descriptive_text
+
+  script(src="/javascripts/jquery-1.8.0.min.js")
+  script(src="/javascripts/mustache.min.js")
+  script(src="/javascripts/jquery.pagination.js")
+  script
+    var items_data = !{items_as_string}
+  script(src="/javascripts/index.js")
